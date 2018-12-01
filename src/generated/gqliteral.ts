@@ -44,46 +44,12 @@ export interface QueryBrandsArgs {
   where?: BrandWhereInput;
 }
 
-export type QueryCollectionReturnType = CollectionReturnType;
-
-export interface QueryCollectionArgs {
-  collectionId: string;
-}
-
-export type QueryOptionsReturnType = MaybePromiseList<OptionReturnType>;
-
-export interface QueryOptionsArgs {
-  after?: string;
-  before?: string;
-  first?: number;
-  last?: number;
-  orderBy?: OptionOrderByInput;
-  skip?: number;
-  where?: OptionWhereInput;
-}
-
-export type QueryProductsReturnType = MaybePromiseList<ProductReturnType>;
-
-export interface QueryProductsArgs {
-  after?: string;
-  before?: string;
-  first?: number;
-  last?: number;
-  orderBy?: ProductOrderByInput;
-  skip?: number;
-  where?: ProductWhereInput;
-}
-
 export interface QueryRootType {
   brands: any[];
-  options: any[];
-  products: any[];
 }
 
 export type QueryReturnType = {
   brands: MaybeThunkArgs<MaybePromise<any[]>, QueryBrandsArgs>;
-  options: MaybeThunkArgs<MaybePromise<any[]>, QueryOptionsArgs>;
-  products: MaybeThunkArgs<MaybePromise<any[]>, QueryProductsArgs>;
 }
 
 export type BrandOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
@@ -385,52 +351,20 @@ export type ProductOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" 
 export type ProductAttributesReturnType = MaybePromiseList<AttributeReturnType>;
 
 export interface ProductAttributesArgs {
-  after?: string;
-  before?: string;
   first?: number;
-  last?: number;
-  orderBy?: AttributeOrderByInput;
-  skip?: number;
+}
+
+export type ProductMyAttributesReturnType = MaybePromiseList<AttributeReturnType>;
+
+export interface ProductMyAttributesArgs {
   where?: AttributeWhereInput;
 }
 
-export type ProductBrandReturnType = BrandReturnType;
-
-export type ProductCollectionsReturnType = MaybePromiseList<CollectionReturnType>;
-
-export interface ProductCollectionsArgs {
-  after?: string;
-  before?: string;
-  first?: number;
-  last?: number;
-  orderBy?: CollectionOrderByInput;
-  skip?: number;
-  where?: CollectionWhereInput;
-}
-
-export type ProductIdReturnType = string;
-
-export type ProductNameReturnType = string;
-
 export type ProductOptionsReturnType = MaybePromiseList<OptionReturnType>;
-
-export type ProductVariantsReturnType = MaybePromiseList<VariantReturnType>;
-
-export interface ProductVariantsArgs {
-  after?: string;
-  before?: string;
-  first?: number;
-  last?: number;
-  orderBy?: VariantOrderByInput;
-  skip?: number;
-  where?: VariantWhereInput;
-}
 
 export type ProductRootType = prisma.Product;
 
 export type ProductReturnType = prisma.Product
-
-export type AttributeOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "key_ASC" | "key_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "value_ASC" | "value_DESC";
 
 export type AttributeIdReturnType = string;
 
@@ -453,34 +387,6 @@ export type AttributeValueReturnType = string;
 export type AttributeRootType = prisma.Attribute;
 
 export type AttributeReturnType = prisma.Attribute
-
-export type CollectionOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
-
-export type CollectionAttributesReturnType = MaybePromiseList<AttributeReturnType>;
-
-export type CollectionBrandsReturnType = MaybePromiseList<BrandReturnType>;
-
-export type CollectionIdReturnType = string;
-
-export type CollectionNameReturnType = string;
-
-export type CollectionOptionsReturnType = MaybePromiseList<OptionReturnType>;
-
-export type CollectionProductsReturnType = MaybePromiseList<ProductReturnType>;
-
-export interface CollectionProductsArgs {
-  after?: string;
-  before?: string;
-  first?: number;
-  last?: number;
-  orderBy?: ProductOrderByInput;
-  skip?: number;
-  where?: ProductWhereInput;
-}
-
-export type CollectionRootType = prisma.Collection;
-
-export type CollectionReturnType = prisma.Collection
 
 export type OptionIdReturnType = string;
 
@@ -514,30 +420,6 @@ export type OptionValueRootType = prisma.OptionValue;
 
 export type OptionValueReturnType = prisma.OptionValue
 
-export type VariantOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "price_ASC" | "price_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
-
-export type VariantIdReturnType = string;
-
-export type VariantOptionValuesReturnType = MaybePromiseList<OptionValueReturnType>;
-
-export interface VariantOptionValuesArgs {
-  after?: string;
-  before?: string;
-  first?: number;
-  last?: number;
-  orderBy?: OptionValueOrderByInput;
-  skip?: number;
-  where?: OptionValueWhereInput;
-}
-
-export type VariantPriceReturnType = null | number;
-
-export type VariantRootType = prisma.Variant;
-
-export type VariantReturnType = prisma.Variant
-
-export type OptionOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
-
 export type MutationAddProductsToCollectionReturnType = CollectionReturnType;
 
 export interface MutationAddProductsToCollectionArgs {
@@ -567,6 +449,32 @@ export interface MutationUpdateProductArgs {
 export type MutationRootType = {};
 
 export type MutationReturnType = {};
+
+export type CollectionAttributesReturnType = MaybePromiseList<AttributeReturnType>;
+
+export type CollectionBrandsReturnType = MaybePromiseList<BrandReturnType>;
+
+export type CollectionIdReturnType = string;
+
+export type CollectionNameReturnType = string;
+
+export type CollectionOptionsReturnType = MaybePromiseList<OptionReturnType>;
+
+export type CollectionProductsReturnType = MaybePromiseList<ProductReturnType>;
+
+export interface CollectionProductsArgs {
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
+  orderBy?: ProductOrderByInput;
+  skip?: number;
+  where?: ProductWhereInput;
+}
+
+export type CollectionRootType = prisma.Collection;
+
+export type CollectionReturnType = prisma.Collection
 
 interface CreateProductInput {
   attributesIds: UniqueInput[];
@@ -600,38 +508,54 @@ interface UpdateVariantInput {
   price: number;
 }
 
+export type VariantIdReturnType = string;
+
+export type VariantOptionValuesReturnType = MaybePromiseList<OptionValueReturnType>;
+
+export interface VariantOptionValuesArgs {
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
+  orderBy?: OptionValueOrderByInput;
+  skip?: number;
+  where?: OptionValueWhereInput;
+}
+
+export type VariantPriceReturnType = null | number;
+
+export type VariantRootType = prisma.Variant;
+
+export type VariantReturnType = prisma.Variant
+
 export interface GraphQLiteralGenArgTypes {
   Query: {
     brands: QueryBrandsArgs;
-    collection: QueryCollectionArgs;
-    options: QueryOptionsArgs;
-    products: QueryProductsArgs;
   };
   Brand: {
     products: BrandProductsArgs;
   };
   Product: {
     attributes: ProductAttributesArgs;
-    collections: ProductCollectionsArgs;
-    variants: ProductVariantsArgs;
+    myAttributes: ProductMyAttributesArgs;
   };
   Attribute: {
     products: AttributeProductsArgs;
   };
-  Collection: {
-    products: CollectionProductsArgs;
-  };
   Option: {
     values: OptionValuesArgs;
-  };
-  Variant: {
-    optionValues: VariantOptionValuesArgs;
   };
   Mutation: {
     addProductsToCollection: MutationAddProductsToCollectionArgs;
     createProduct: MutationCreateProductArgs;
     removeProductsFromCollection: MutationRemoveProductsFromCollectionArgs;
     updateProduct: MutationUpdateProductArgs;
+  };
+  Collection: {
+    products: CollectionProductsArgs;
+  };
+  Variant: {
+    optionValues: VariantOptionValuesArgs;
   };
 }
 
@@ -640,19 +564,16 @@ export interface GraphQLiteralGenRootTypes {
   Brand: BrandRootType;
   Product: ProductRootType;
   Attribute: AttributeRootType;
-  Collection: CollectionRootType;
   Option: OptionRootType;
   OptionValue: OptionValueRootType;
-  Variant: VariantRootType;
   Mutation: MutationRootType;
+  Collection: CollectionRootType;
+  Variant: VariantRootType;
 }
 
 export interface GraphQLiteralGenReturnTypes {
   Query: {
     brands: QueryBrandsReturnType;
-    collection: QueryCollectionReturnType;
-    options: QueryOptionsReturnType;
-    products: QueryProductsReturnType;
   };
   Brand: {
     id: BrandIdReturnType;
@@ -661,26 +582,14 @@ export interface GraphQLiteralGenReturnTypes {
   };
   Product: {
     attributes: ProductAttributesReturnType;
-    brand: ProductBrandReturnType;
-    collections: ProductCollectionsReturnType;
-    id: ProductIdReturnType;
-    name: ProductNameReturnType;
+    myAttributes: ProductMyAttributesReturnType;
     options: ProductOptionsReturnType;
-    variants: ProductVariantsReturnType;
   };
   Attribute: {
     id: AttributeIdReturnType;
     key: AttributeKeyReturnType;
     products: AttributeProductsReturnType;
     value: AttributeValueReturnType;
-  };
-  Collection: {
-    attributes: CollectionAttributesReturnType;
-    brands: CollectionBrandsReturnType;
-    id: CollectionIdReturnType;
-    name: CollectionNameReturnType;
-    options: CollectionOptionsReturnType;
-    products: CollectionProductsReturnType;
   };
   Option: {
     id: OptionIdReturnType;
@@ -692,16 +601,24 @@ export interface GraphQLiteralGenReturnTypes {
     name: OptionValueNameReturnType;
     option: OptionValueOptionReturnType;
   };
-  Variant: {
-    id: VariantIdReturnType;
-    optionValues: VariantOptionValuesReturnType;
-    price: VariantPriceReturnType;
-  };
   Mutation: {
     addProductsToCollection: MutationAddProductsToCollectionReturnType;
     createProduct: MutationCreateProductReturnType;
     removeProductsFromCollection: MutationRemoveProductsFromCollectionReturnType;
     updateProduct: MutationUpdateProductReturnType;
+  };
+  Collection: {
+    attributes: CollectionAttributesReturnType;
+    brands: CollectionBrandsReturnType;
+    id: CollectionIdReturnType;
+    name: CollectionNameReturnType;
+    options: CollectionOptionsReturnType;
+    products: CollectionProductsReturnType;
+  };
+  Variant: {
+    id: VariantIdReturnType;
+    optionValues: VariantOptionValuesReturnType;
+    price: VariantPriceReturnType;
   };
 }
 
@@ -713,22 +630,18 @@ export interface GraphQLiteralGenTypes {
   enums: {
     BrandOrderByInput: BrandOrderByInput;
     ProductOrderByInput: ProductOrderByInput;
-    AttributeOrderByInput: AttributeOrderByInput;
-    CollectionOrderByInput: CollectionOrderByInput;
     OptionValueOrderByInput: OptionValueOrderByInput;
-    VariantOrderByInput: VariantOrderByInput;
-    OptionOrderByInput: OptionOrderByInput;
   };
   objects: {
     Query: QueryRootType;
     Brand: BrandRootType;
     Product: ProductRootType;
     Attribute: AttributeRootType;
-    Collection: CollectionRootType;
     Option: OptionRootType;
     OptionValue: OptionValueRootType;
-    Variant: VariantRootType;
     Mutation: MutationRootType;
+    Collection: CollectionRootType;
+    Variant: VariantRootType;
   };
   interfaces: {};
   unions: {};
